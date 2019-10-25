@@ -10,51 +10,19 @@ import Trackers from './components/Trackers';
 //import TrackersAPI from './components/TrackersAPI';
 import './App.css';
 
+import {coins} from './db.json';
+
 class App extends Component {
 
-  state = {  // local data overwritten by Mock api
-    trackers:
-      [
-        {
-          id: uuid.v4(),
-          symbol: 'BTC',
-          title: 'Bitcoin',
-          date: '2019-07-04',
-          open: 9000,
-          close: 9898,
-          high: 10000,
-          low: 9787,
-          netPositive: true,
-          tracking: true
-        },
-        {
-          id: uuid.v4(),
-          symbol: 'ETH',
-          title: 'Ethereum',
-          date: '2019-07-04',
-          open: 220.8,
-          close: 219.0,
-          high: 221.1,
-          low: 218.9,
-          netPositive: true,
-          tracking: false
-        },
-        {
-          id: uuid.v4(),
-          symbol: 'XRP',
-          title: 'Ripple',
-          date: '2019-07-04',
-          open: .311,
-          close: .310,
-          high: .344,
-          low: .310,
-          netPositive: false,
-          tracking: true
-        }
-      ],
+  constructor(){
+    super()
+
+    this.state = {  // local data overwritten by Mock api
+    trackers:coins,
     trackersAPI: []
   };
 
+  }
   // SETUP for MOCK API
   componentDidMount() {
     axios
@@ -112,6 +80,8 @@ class App extends Component {
 
   render() {
     console.log(this.state.trackersAPI);
+
+    
     return (
       <Router>
         <div className="App">

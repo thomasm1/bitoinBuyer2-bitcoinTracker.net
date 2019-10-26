@@ -28,11 +28,11 @@ export class CoinTracker extends Component {
     render() {
 
         const { id, title, symbol, netPositive, date, close, open, high, low } = this.props.tracker;
-
-        return (
+      return (
             <div style={this.getTrackerStyle()}>
                 <p>
                     <input type="checkbox"  defaultChecked={this.getTrackerChecked()} onChange={this.props.trackThis.bind(this, id)} />  &nbsp;&nbsp;<strong>{title} {'  '} {'  ('}{symbol}{')  '}</strong>&nbsp;{' | '}&nbsp;  <strong>{'Price: '}</strong> {close}    <br /> 
+
                     <strong>{'Recent Statistics: '}</strong> &nbsp;   
                     <strong>{'Date: '}</strong> {date} &nbsp;{' | '}&nbsp;  
                     <strong>{'Net Gain: '}</strong> <span style={this.getLetterStyle()}>{netPositive? ' Positive': ' Negative'} </span> <br />
@@ -41,7 +41,7 @@ export class CoinTracker extends Component {
                     <strong>{'Low: '}</strong> {low}  &nbsp;{' | '}&nbsp; 
                     <strong>{'High: '}</strong> {high} 
                     <button onClick={this.props.delCoin.bind(this, id)} style={btnStyle}> x </button>
-                    </p>
+                </p> 
             </div>
         );
     }

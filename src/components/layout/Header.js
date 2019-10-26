@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-
+import { NavLink } from 'react-router-dom';
+import {HeaderCSS} from './Header.css';
 
 class Header extends Component {
 
   state = {
-    active: 'not-active',
+    active: 'search-not-active',
     searchWords: ''
   }
 
   inputChange(event) {
-    const value = event.target.value === '' ? 'not-active' : 'active';
+    const value = event.target.value === '' ? 'search-not-active' : 'search-active';
     this.setState({
       active: value,
       searchWords: event.target.value
@@ -21,14 +21,14 @@ class Header extends Component {
       searchWords: '',
       active:this.value
     });
-    this.value = this.state.searchWords === '' ? 'not-active' : 'active'; 
+    this.value = this.state.searchWords === '' ? 'search-not-active' : 'search-active'; 
   }
 
   render() {
     console.log(this.state.searchWords)
     return (
-      <header style={this.state.active === 'active' ? activeStyle : headerStyle}>
-        <div style={{float:"right"}}>
+      <header  style={this.state.active === 'search-active' ? activeStyle : headerStyle}>
+        <div>
           <span>Search </span>
           <input className="input" value={this.state.searchWords} onChange={(event) => this.inputChange(event)} />
           &nbsp;<button className="btn btn-success btn-sm " onClick={(event) => this.clearSearch(event)}>Clear</button>
@@ -36,7 +36,11 @@ class Header extends Component {
         <hr /><br />
         <h2>ReactJS CoinTracker Console</h2>
         <hr />
-        <Link style={linkStyle} to="/">HOME</Link>&nbsp;&nbsp; | &nbsp;&nbsp;<Link style={linkStyle} to="/about">ABOUT</Link>
+        <div style={HeaderCSS} >
+        <NavLink activeClassName="is-active" exact style={linkStyle} to="/">HOME</NavLink>&nbsp;&nbsp; | &nbsp;&nbsp;
+        <NavLink  activeClassName="is-active" style={linkStyle} to="/data-api">DATA API</NavLink>&nbsp;&nbsp; | &nbsp;&nbsp;
+        <NavLink  activeClassName="is-active" style={linkStyle} to="/about">ABOUT</NavLink>
+        </div>
         <hr />
       </header>
     )
@@ -54,11 +58,10 @@ let activeStyle = {
   color: 'white',
   textAlign: 'center',
   padding: '10px'
+} 
+
+let linkStyle = { 
+  textDecoration: 'none', 
 }
 
-
-let linkStyle = {
-  color: 'darkblue',
-  textDecoration: 'none'
-}
 export default Header;

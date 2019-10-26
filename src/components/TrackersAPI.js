@@ -1,25 +1,25 @@
-import React, { Component } from 'react';
-import CoinTracker from './CoinTracker';
-import PropTypes from 'prop-types'; 
-
-class TrackersAPI extends Component { 
-    render() {
-        return this.props.trackersAPI.slice(0).reverse().map((trackerAPI) => (
-            <CoinTracker 
-            key={trackerAPI.id} 
-            trackerAPI={trackerAPI} 
-            trackThis={this.props.trackThis} 
-            delCoin={this.props.delCoin} 
-            checkbox={this.props.checkbox}
-            />
-        ));     
-    }
+import React from 'react'; 
+// import PropTypes from 'prop-types';
+// import './Trackers.css';
+export function TrackersAPI() {
+    return (
+        <div>
+            TrackersAPI 
+        </div>
+    )
+    // return props.trackersAPI.slice(0).reverse().map((trackerAPI) => (
+    //     <div 
+    //     key={trackerAPI.id} 
+    //     trackerAPI={trackerAPI}  
+    //     >
+    //     children
+    //     </div>
+    // ));    
 }
 
-TrackersAPI.propTypes = {
-    trackersAPI: PropTypes.array.isRequired,
-    trackThis: PropTypes.func.isRequired,
-    delCoin: PropTypes.func.isRequired
-}
+// TrackersAPI.propTypes = {
+//     TrackersAPI: PropTypes.array.isRequired,
+//     trackThis: PropTypes.func.isRequired 
+// }
 
 export default TrackersAPI;

@@ -1,0 +1,50 @@
+[
+	{
+		"id": 1,
+		"symbol": "BTC",
+		"title": "Bitcoin",
+		"date": "2019-10-04",
+		"open": 9000,
+		"close": 9898,
+		"high": 10000,
+		"low": 9787,
+		"netPositive": true,
+		"tracking": true
+	},
+	{
+		"id": 2,
+		"symbol": "ETH",
+		"title": "Ethereum",
+		"date": "2019-10-04",
+		"open": 220.8,
+		"close": 223.1,
+		"high": 221.1,
+		"low": 218.9,
+		"netPositive": true,
+		"tracking": false
+	},
+	{
+		"id": 3,
+		"symbol": "XRP",
+		"title": "Ripple",
+		"date": "2019-10-04",
+		"open": 0.311,
+		"close": 0.310,
+		"high": 0.344,
+		"low": 0.310,
+		"netPositive": false,
+		"tracking": true
+	},
+	{
+		"id": 4,
+		"date": "2019-10-04",
+		"symbol": "LTCUSD",
+		"title": "Litecoin",
+		"open": 50.79,
+		"close": 50.5,
+		"high": 50.9,
+		"low": 50.39,
+		"netPositive": false,
+		"tracking": true
+	}
+]

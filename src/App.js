@@ -7,7 +7,8 @@ import Header from './components/layout/Header';
 import About from './components/pages/About';
 import AddCoin from './components/AddCoin';
 import Trackers from './components/Trackers';
-//import TrackersAPI from './components/TrackersAPI';
+import TrackersAPI from './components/TrackersAPI';
+
 import './App.css';
 
 import {coins} from './db.json';
@@ -26,7 +27,7 @@ class App extends Component {
   // SETUP for MOCK API
   componentDidMount() {
     axios
-      .get('https://jsonplaceholder.typicode.com/todos?_limit=10')
+      .get('https://jsonplaceholder.typicode.com/todos')
       .then((res) =>
         // this.setState({ trackers: res.data })
         this.setState({ trackersAPI: res.data })
@@ -79,8 +80,8 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.trackersAPI);
-
+    console.log('App.js ', this.state.trackersAPI);
+ 
     
     return (
       <Router>
@@ -91,13 +92,26 @@ class App extends Component {
             <Route
               exact
               path='/'
-              render={(props) => (
+              render={() => (
                 <React.Fragment>
                   <AddCoin addCoin={this.addCoin} />
                   <Trackers trackers={this.state.trackers} trackThis={this.trackThis} delCoin={this.delCoin} />
                 </React.Fragment>
               )}
             />
+
+            <Route 
+              path='/data-api' 
+              component={TrackersAPI}
+              render={() => (
+                <React.Fragment>
+            />
+                <TrackersAPI >
+                {this.state.trackersAPI}
+                children
+                </TrackersAPI>  
+                </React.Fragment>
+              )} />
 
             <Route path='/about' component={About} />
 

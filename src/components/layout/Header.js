@@ -40,7 +40,7 @@ class Header extends Component {
         <nav className="navbar" role="navigation" aria-label="main navigation">
           <div className="navbar-brand">
             <a className="navbar-item" href="/">
-              {/* <img src="tmmpurple.png" height="400" alt="tmm logo" /> */}
+              <img src="tmmpurple.png"   alt="tmm logo" />
             </a>
           </div>
 
@@ -70,8 +70,7 @@ class Header extends Component {
             </div>
           </div>
         </nav>
-        <br />
-        <h1>ReactJS CoinTracker Console</h1>
+      
       </header>
     )
   }

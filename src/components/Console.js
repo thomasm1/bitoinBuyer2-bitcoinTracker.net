@@ -15,8 +15,16 @@ export class Console extends Component {
     trackersAPI: []
   };
  }
+  // // SETUP for MOCK API
+  // componentDidMount() {
+  //   axios
+  //     .get('https://jsonplaceholder.typicode.com/todos')
+  //     .then((res) =>
+  //       // this.setState({ trackers: res.data })
+  //       this.setState({ trackersAPI: res.data })
+  //     );
+  // } 
 
-    
       // Track/Not Track
   trackThis = (id) => {
     console.log(id + ' tracked! ..from App.js');
@@ -62,13 +70,13 @@ export class Console extends Component {
       });
   };
  
-    render() { 
-      return (
-            <div  >
-           <h2>CONSOLE</h2>  
-            </div>
-        );
-    }
+    // render() { 
+    //   return (
+    //         <div  >
+    //        <h2>CONSOLE</h2>  
+    //         </div>
+    //     );
+    // }
   render=() => (
                 <React.Fragment>
                   <AddCoin addCoin={this.addCoin} />

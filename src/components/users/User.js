@@ -1,7 +1,7 @@
 import React, { Component, Fragment }  from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export default class UserAdmin extends Component {
+export default class User extends Component {
 
   state = {
     isEditMode: false,
@@ -40,7 +40,7 @@ export default class UserAdmin extends Component {
               <input 
                 className="input is-medium"
                 type="text" 
-                placeholder="Enter name"
+                placeholder="Enter username"
                 value={this.state.updatedusername}
                 onChange={this.onAddUserNameChange}
               />

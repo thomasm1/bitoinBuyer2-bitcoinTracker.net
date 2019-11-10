@@ -1,20 +1,19 @@
 import React, { Component, Fragment } from 'react';
 import User from './User';
 import axios from "axios";
-const config = require('../config.json');
+const config = require('../../config.json');
 
-export default class Products extends Component {
+export default class Users extends Component {
 
   state = {
     newuser: null,
     users: []
   }
 
-  fetchProducts = async () => {
-    // add call to AWS API Gateway to fetch users here
-    // then set them in state
+  fetchUsers = async () => {
+    //   call to AWS API Gateway to fetch users  then set them in state
     try {
-      const res = await axios.get(`${config.api.invokeUrl}/users`);
+      const res = await axios.get(`${config.api.invokeUrl}/armchair-users`);
       const users = res.data;
       this.setState({ users: users });
     } catch (err) {
@@ -23,7 +22,7 @@ export default class Products extends Component {
   }
 
   componentDidMount = () => {
-    this.fetchProducts();
+    this.fetchUsers();
   }
 
   render() {
@@ -32,7 +31,7 @@ export default class Products extends Component {
         <section className="section">
           <div className="container">
             <h1>Membership Types</h1>
-            <p className="subtitle is-5">Invest in a better future with tailored, informed and targeted research:</p>
+            <p className="subtitle is-5">Invest in a better future with tailored, informed and targeted crypto-research:</p>
             <br />
             <div className="columns">
               <div className="column">

@@ -1,11 +1,9 @@
 'use strict'
-// Using Async, not callback...
-
 const AWS = require('aws-sdk');
 
 AWS.config.update({ region: "us-east-1" });
 
-exports.handler = async /*function*/(event, context) => { // , callback) {
+exports.handler = function (event, context, callback) {
     // const ddb = new AWS.DynamoDB({ apiVersion: "2012-10-8" });
   const documentClient = new AWS.DynamoDB.DocumentClient({ region: "us-east-1" });
 
@@ -14,10 +12,10 @@ exports.handler = async /*function*/(event, context) => { // , callback) {
 
   const { Date } = event.pathParameters;
 
-    const params = {
-        TableName: "prices_bitcoin",
+   const params = {
+        TableName: "prices_ethereum", 
         Key: {
-            Date: Date
+            Date:  "2019-11-06",// Date
         }
     }
 
@@ -28,7 +26,7 @@ exports.handler = async /*function*/(event, context) => { // , callback) {
     statusCode = 200;
     console.log(data);
   } catch (err) {
-    responseBody = `Unable to get BTC price: ${err}`;
+    responseBody = `Unable to get price: ${err}`;
     statusCode = 403;
     console.log(err);
   }
@@ -43,4 +41,5 @@ exports.handler = async /*function*/(event, context) => { // , callback) {
 
   return response;
 }
+
  

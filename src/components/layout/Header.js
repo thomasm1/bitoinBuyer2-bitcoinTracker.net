@@ -40,7 +40,7 @@ class Header extends Component {
         <nav className="navbar" role="navigation" aria-label="main navigation">
           <div className="navbar-brand">
             <a className="navbar-item" href="/">
-              <img src="tmmpurple.png"   alt="tmm logo" />
+              {/* <img src="tmmpurple.png"   alt="tmm logo" /> */}
             </a>
           </div>
 
@@ -49,10 +49,10 @@ class Header extends Component {
             <div className="navbar-start">
 
 
-              <NavLink className="navbar-item" activeClassName="is-active" exact style={linkStyle} to="/">HOME</NavLink>
-            
+              <NavLink className="navbar-item" activeClassName="is-active" exact style={linkStyle} to="/">HOME</NavLink> 
               <NavLink className="navbar-item" activeClassName="is-active" exact style={linkStyle} to="/console">CONSOLE</NavLink>
               <NavLink className="navbar-item" activeClassName="is-active" style={linkStyle} to="/data-api">DATA</NavLink>
+              <NavLink className="navbar-item" activeClassName="is-active" style={linkStyle} to="/data-admin">EDIT</NavLink>
               <NavLink className="navbar-item" activeClassName="is-active" style={linkStyle} to="/about">ABOUT</NavLink>
 
             </div>

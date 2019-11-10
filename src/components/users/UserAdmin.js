@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import User from './User';
+import './Users.css';
 import axios from "axios";
-const config = require('../config.json');
+const config = require('../../config.json');
 
 export default class UserAdmin extends Component {
 
@@ -21,7 +22,7 @@ export default class UserAdmin extends Component {
         "id": id,
         "username": this.state.newuser.username
       };
-      await axios.post(`${config.api.invokeUrl}/users/${id}`, params);
+      await axios.post(`${config.api.invokeUrl}/armchair-users/${id}`, params);
       this.setState({ users: [...this.state.users, this.state.newuser] });
       this.setState({ newuser: { "username": "", "id": "" }});
     }catch (err) {
@@ -36,7 +37,7 @@ export default class UserAdmin extends Component {
         "id": id,
         "username": name
       };
-      await axios.patch(`${config.api.invokeUrl}/users/${id}`, params);
+      await axios.patch(`${config.api.invokeUrl}/armchair-users/${id}`, params);
       const userToUpdate = [...this.state.users].find(user => user.id === id);
       const updatedUsers = [...this.state.users].filter(user => user.id !== id);
       userToUpdate.username = name;
@@ -51,7 +52,7 @@ export default class UserAdmin extends Component {
     event.preventDefault();
     // add call to AWS API Gateway delete user endpoint here
     try {
-      await axios.delete(`${config.api.invokeUrl}/users/${id}`);
+      await axios.delete(`${config.api.invokeUrl}/armchair-users/${id}`);
       const updatedUsers = [...this.state.users].filter(user => user.id !== id);
       this.setState({users: updatedUsers});
     }catch (err) {
@@ -60,10 +61,9 @@ export default class UserAdmin extends Component {
   }
 
   fetchUsers = async () => {
-    // add call to AWS API Gateway to fetch users here
-    // then set them in state
+    //   call to AWS API Gateway to fetch users  then set them in state
     try {
-      const res = await axios.get(`${config.api.invokeUrl}/users`);
+      const res = await axios.get(`${config.api.invokeUrl}/armchair-users`);
       const users = res.data;
       this.setState({ users: users });
     } catch (err) {
@@ -84,7 +84,8 @@ export default class UserAdmin extends Component {
         <section className="section">
           <div className="container">
             <h1>User Admin</h1>
-            <p className="subtitle is-5">Add and remove users using the form below:</p>
+            <hr />
+            <p className="subtitle is-5">Add and remove users using AWS DynamoDB persistant storage:</p>
             <br />
             <div className="columns">
               <div className="column is-one-third">
@@ -109,16 +110,17 @@ export default class UserAdmin extends Component {
                       />
                     </div>
                     <div className="control">
-                      <button type="submit" className="button is-primary is-medium">
+                      <button type="submit" className="button is-info is-medium">
                         Add user
                       </button>
                     </div>
                   </div>
                 </form>
-              </div>
-              <div className="column is-two-thirds">
-                <div className="tile is-ancestor">
-                  <div className="tile is-4 is-parent  is-vertical">
+              </div> 
+              
+              <div className=" column is-two-thirds panels">
+                {/* <d/iv className="tile is-ancestor "> */}
+                  <div className="tile is-4 is-parent   is-vertical">
                     { 
                       this.state.users.map((user, index) => 
                         <User 
@@ -131,9 +133,10 @@ export default class UserAdmin extends Component {
                         />)
                     }
                   </div>
-                </div>
+                {/* </div> */}
               </div>
             </div>
+
           </div>
         </section>
       </Fragment>

@@ -29,16 +29,28 @@ exports.handler = async (event, context) => {
         }
     }
 
-
-    try {
-        // const data =  ddb.getItem(params).promise();
+    try { 
         const data = await documentClient.put(params).promise();
-        console.log(data);
+        responseBody = JSON.stringify(data);
+        statusCode = 201;
+        // console.log(data);
     } catch (err) {
+        responseBody  = `Unable to put user: ${err}`;
+        statusCode = 403
         console.log(err);
     }
-}
 
+    const response = {
+        statusCode: statusCode, 
+        headers: {
+            "Content-Type": "application/json",
+            "access-control-allow-origin": "*"
+        },
+        body: responseBody
+    };
+    return response;
+}
+ 
 // START RequestId: 46587c57-ff3f-4a53-9772-b206f6634f25 Version: $LATEST
 // 2019-11-08T04:48:39.936Z	46587c57-ff3f-4a53-9772-b206f6634f25	INFO	{ Item:
 //    { userGroup: '5',

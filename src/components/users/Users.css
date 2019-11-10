@@ -1,0 +1,9 @@
+input {
+    min-width:200px;
+}
+.output {
+    float:right;
+}
+.panels {
+    transform: translate(150px, 50px);
+}

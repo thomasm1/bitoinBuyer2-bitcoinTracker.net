@@ -16,7 +16,7 @@ exports.handler = async (event, context) => {
     const params = {
         TableName: "armchair_users",
         Key: {
-            id: id 
+            id: "1"// id 
         }
     }
  
@@ -35,7 +35,8 @@ exports.handler = async (event, context) => {
       const response = {
     statusCode: statusCode,
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "access-control-allow-origin":"*"
     },
     body: responseBody
   };

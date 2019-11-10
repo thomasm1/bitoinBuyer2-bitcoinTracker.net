@@ -7,37 +7,38 @@ const AWS = require('aws-sdk');
 AWS.config.update({ region: "us-east-1" });
 
 exports.handler = async (event, context) => {
-    // const ddb = new AWS.DynamoDB({ apiVersion: "2012-10-8" });
-    const documentClient = new AWS.DynamoDB.DocumentClient({ region: "us-east-1" }); 
+  // const ddb = new AWS.DynamoDB({ apiVersion: "2012-10-8" });
+  const documentClient = new AWS.DynamoDB.DocumentClient({ region: "us-east-1" });
 
-    let responseBody = "";
-    let statusCode = 0;
+  let responseBody = "";
+  let statusCode = 0;
 
-    const { id, name } = event.pathParameters;
+  const { id } = event.pathParameters;
 
-    const params = {
-        TableName: "armchair_users",
-        Key: {
-            id: id 
-        }
+  const params = {
+    TableName: "armchair_users",
+    Key: {
+      id: id
     }
+  }
 
 
-    try {
-        // const data =  ddb.getItem(params).promise();
-        const data = await documentClient.get(params).promise();
+  try {
+    // const data =  ddb.getItem(params).promise();
+    const data = await documentClient.get(params).promise();
     responseBody = JSON.stringify(data.Item);  // double-check data.Item
     statusCode = 200;
-        console.log(data);
-    } catch (err) {
+    console.log(data);
+  } catch (err) {
     responseBody = `Unable to get user: ${err}`;
     statusCode = 403;
-        console.log(err);
-    }  
-      const response = {
+    console.log(err);
+  }
+  const response = {
     statusCode: statusCode,
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "access-control-allow-origin": "*"
     },
     body: responseBody
   };

@@ -13,7 +13,8 @@ exports.handler = async (event, context) => {
     const params = {
         TableName: "coin_portfolios",
         Item: {
-            id: "2",  
+            id: "2", 
+            username: "thomas.maestas@hotmail.com" ,
             firstname: "Thomas",
             lastname: "Milton",  
             userGroup: "3", 

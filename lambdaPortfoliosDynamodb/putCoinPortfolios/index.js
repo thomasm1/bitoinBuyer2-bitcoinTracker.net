@@ -9,6 +9,8 @@ exports.handler = async (event, context) => {
 
     const { 
     id,   
+    portfolioId,   
+    username,
     firstname, 
     lastname,   
     userGroup,  
@@ -21,7 +23,9 @@ exports.handler = async (event, context) => {
     const params = {
         TableName: "coin_portfolios",
         Item: {
-            id: id,   
+            id: id,
+            portfolioId: portfolioId,   
+            username: username,
             firstname: firstname, 
             lastname: lastname,   
             userGroup: userGroup,  

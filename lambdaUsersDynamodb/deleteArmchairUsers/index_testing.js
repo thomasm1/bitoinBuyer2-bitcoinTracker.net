@@ -18,9 +18,9 @@ exports.handler = async (event, context) => {
     const params = {
         TableName: "armchair_users",
         Key: {
-              id: "6", //id //, //"6",
+              id: "6"  //id //, //"6",
             //  {   S:  "1", }
-            name: "bad" //name //"delete-me!"
+         
         }
     }
 

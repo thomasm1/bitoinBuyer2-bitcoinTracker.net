@@ -8,35 +8,39 @@ AWS.config.update({ region: "us-east-1" });
 
 exports.handler = async (event, context) => {
     // const ddb = new AWS.DynamoDB({ apiVersion: "2012-10-8" });
-    const documentClient = new AWS.DynamoDB.DocumentClient({ region: "us-east-1" });
+    const documentClient = new AWS.DynamoDB.DocumentClient({ region: "us-east-1" }); 
+
+  let responseBody = "";
+  let statusCode = 0;
 
     const params = {
         TableName: "armchair_users",
-        Item: {
-            id: "2",
-            uid: "DF3r1iqZzOWJaMfuzyjTDCckCnn1",
-            username: "thomas.maestas@hotmail.com", 
-            firstname: "Thomas",
-            lastname: "Milton",
-            email: "thomas.maestas@hotmail.com",
-            phone: 5055087707,
-            contactType: "phone",
-            userGroup: "3",
-            dateOfBirth: "1917-09-03",
-            isActive: false,
-            photoPath: "https://tmm-nov.s3.amazonaws.com/data/media/Charlemagne.jpg"
-            // photoPath: "https://tmm-nov.s3.amazonaws.com/data/media/TomPicUpload.jpg"
+        Key: {
+            id: id 
         }
     }
-
+ 
 
     try {
         // const data =  ddb.getItem(params).promise();
-        const data = await documentClient.put(params).promise();
+        const data = await documentClient.get(params).promise();
+    responseBody = JSON.stringify(data.Item);  
+    statusCode = 200;
         console.log(data);
     } catch (err) {
+    responseBody = `Unable to get user: ${err}`;
+    statusCode = 403;
         console.log(err);
-    }
+    }  
+      const response = {
+    statusCode: statusCode,
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: responseBody
+  };
+
+  return response;
 }
 
 // START RequestId: 46587c57-ff3f-4a53-9772-b206f6634f25 Version: $LATEST

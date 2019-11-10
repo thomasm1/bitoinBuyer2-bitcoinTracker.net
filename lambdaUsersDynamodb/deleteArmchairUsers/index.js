@@ -7,13 +7,11 @@ exports.handler = async (event, context) => {
     let responseBody = "";
     let statusCode = 0;
 
-    const { id, name  } =   event.pathParameters ; // TODO!! remove sort key
-
+    const { id   } =   event.pathParameters ; 
     const params = {
         TableName: "armchair_users",
         Key: {
-            id: id, 
-            name: name 
+            id: id 
         }
     };
 

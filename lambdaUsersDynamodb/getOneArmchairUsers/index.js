@@ -10,14 +10,15 @@ exports.handler = async (event, context) => {
     // const ddb = new AWS.DynamoDB({ apiVersion: "2012-10-8" });
     const documentClient = new AWS.DynamoDB.DocumentClient({ region: "us-east-1" }); 
 
-  let responseBody = "";
-  let statusCode = 0;
+    let responseBody = "";
+    let statusCode = 0;
+
+    const { id, name } = event.pathParameters;
 
     const params = {
         TableName: "armchair_users",
         Key: {
-            id: "1", 
-            name: "Tom"
+            id: id 
         }
     }
 

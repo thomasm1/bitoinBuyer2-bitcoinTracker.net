@@ -1,6 +1,8 @@
 'use strict' 
 const AWS = require('aws-sdk');
- 
+
+AWS.config.update({ region: "us-east-1"})
+
 exports.handler = async (event, context) => { 
     const documentClient = new AWS.DynamoDB.DocumentClient({ region: "us-east-1" });
 
@@ -9,6 +11,7 @@ exports.handler = async (event, context) => {
 
     const { id, 
     uid, 
+    username,
     name, 
     firstname, 
     lastname, 
@@ -25,7 +28,7 @@ exports.handler = async (event, context) => {
         Item: {
             id: id, 
             uid: uid, 
-            name: name, 
+            username: username, 
             firstname: firstname, 
             lastname: lastname,  
             email: email,  

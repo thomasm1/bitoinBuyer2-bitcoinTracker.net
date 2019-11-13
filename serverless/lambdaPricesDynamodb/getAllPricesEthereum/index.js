@@ -13,7 +13,7 @@ exports.handler = async (event, context) => {
     let statusCode = 0;
  
     const params = {
-        TableName: "prices_ethereum"
+        TableName: "prices_ethereum2"
     }
 
     try {

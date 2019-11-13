@@ -1,52 +1,106 @@
 {
-	"coins" : [
-	{
-		"id": 1,
-		"symbol": "BTC",
-		"title": "Bitcoin",
-		"date": "2019-10-04",
-		"open": 9000,
-		"close": 9898,
-		"high": 10000,
-		"low": 9787,
-		"netPositive": true,
-		"tracking": true
-	},
-	{
-		"id": 2,
-		"symbol": "ETH",
-		"title": "Ethereum",
-		"date": "2019-10-04",
-		"open": 220.8,
-		"close": 223.1,
-		"high": 221.1,
-		"low": 218.9,
-		"netPositive": true,
-		"tracking": false
-	},
-	{
-		"id": 3,
-		"symbol": "XRP",
-		"title": "Ripple",
-		"date": "2019-10-04",
-		"open": 0.311,
-		"close": 0.310,
-		"high": 0.344,
-		"low": 0.310,
-		"netPositive": false,
-		"tracking": true
-	},
-	{
-		"id": 4,
-		"date": "2019-10-04",
-		"symbol": "LTCUSD",
-		"title": "Litecoin",
-		"open": 50.79,
-		"close": 50.5,
-		"high": 50.9,
-		"low": 50.39,
-		"netPositive": false,
-		"tracking": true
-	}
-]
+  "armchair_users": [
+    {
+      "id": "1",
+      "uid": "uxxxid",
+      "username": "username",
+      "firstname": "firstname",
+      "lastname": "lastname",
+      "email": "email",
+      "phone": 5055087707,
+      "contactType": "contactType",
+      "userGroup": "userGroup",
+      "dateOfBirth": "dateOfBirth",
+      "isActive": true,
+      "photoPath": "photoPath"
+    }
+  ],
+  "coin_portfolios": [
+    {
+      "id": "1",
+      "portfolioId": "portfolioId",
+      "username": "username",
+      "firstname": "Thomas",
+      "lastname": "lastname",
+      "userGroup": "3",
+      "isActive": false,
+      "coinPortfolio": "['BTC','ETH']",
+      "groupsAccess": "['2','3','5']",
+      "groupsNumeric": "[2,3,5]"
+    }
+  ],
+  "prices_ethereum": [
+    {
+      "Close": 190.78,
+      "Date": "2019-11-06",
+      "High": 194.6,
+      "Low": 187.87,
+      "Open": 188.88,
+      "Symbol": "ETHUSD",
+      "Volume ETH": 24423.49,
+      "Volume USD": 4667003.57
+    }
+  ],
+  "prices_bitcoin": [
+    {
+      "Close": 9361.54,
+      "Date": "2019-11-06",
+      "High": 9450,
+      "Low": 9282.08,
+      "Open": 9322.09,
+      "Symbol": "BTCUSD",
+      "Volume BTC": 3462.61,
+      "Volume USD": 32366350.77
+    }
+  ],
+  "coins": [
+    {
+      "id": 1,
+      "symbol": "BTCUSD",
+      "title": "Bitcoin",
+      "date": "2019-10-04",
+      "open": 9000,
+      "close": 9898,
+      "high": 10000,
+      "low": 9787,
+      "netPositive": true,
+      "tracking": true
+    },
+    {
+      "id": 2,
+      "symbol": "ETHUSD",
+      "title": "Ethereum",
+      "date": "2019-10-04",
+      "open": 220.8,
+      "close": 223.1,
+      "high": 221.1,
+      "low": 218.9,
+      "netPositive": true,
+      "tracking": false
+    },
+    {
+      "id": 3,
+      "symbol": "XRPUSD",
+      "title": "Ripple",
+      "date": "2019-10-04",
+      "open": 0.311,
+      "close": 0.310,
+      "high": 0.344,
+      "low": 0.310,
+      "netPositive": false,
+      "tracking": true
+    },
+    {
+      "id": 4,
+      "date": "2019-10-04",
+      "symbol": "LTCUSD",
+      "title": "Litecoin",
+      "open": 50.79,
+      "close": 50.5,
+      "high": 50.9,
+      "low": 50.39,
+      "netPositive": false,
+      "tracking": true
+    }
+  ]
 }

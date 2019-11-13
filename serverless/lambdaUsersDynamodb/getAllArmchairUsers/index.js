@@ -1,6 +1,4 @@
-'use strict'
-// Circumvents DynamoDB JSON service object...using DocumentClient constructor
-// Uses Primary Key String id, and String name (sort key)
+'use strict' 
 
 const AWS = require('aws-sdk');
 

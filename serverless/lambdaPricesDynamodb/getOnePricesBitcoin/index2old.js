@@ -1,29 +1,27 @@
 'use strict'
-// Using Async, not callback...
-
 const AWS = require('aws-sdk');
 
 AWS.config.update({ region: "us-east-1" });
 
-exports.handler = async /*function*/(event, context) => { // , callback) {
-    // const ddb = new AWS.DynamoDB({ apiVersion: "2012-10-8" });
-  const documentClient = new AWS.DynamoDB.DocumentClient({ region: "us-east-1" });
+exports.handler = function (event, context) {  //, callback
+    const ddb = new AWS.DynamoDB({ apiVersion: "2012-10-8" });
+  // const documentClient = new AWS.DynamoDB.DocumentClient({ region: "us-east-1" });
 
-  let responseBody = "";
-  let statusCode = 0;
+    let responseBody = "";
+    let statusCode = 0;
 
-  const { Date } = event.pathParameters;
+    // const { id } = event.pathParameters;
 
     const params = {
-        TableName: "prices_bitcoin",
-        Key: {
-            Date: Date
+        TableName: "prices_bitcoin2",
+        Key:  
+               {   N:  1  }
         }
-    }
+    
 
   try {
-    // const data =  ddb.getItem(params).promise();
-    const data = await documentClient.get(params).promise();
+    const data =  ddb.getItem(params).promise();
+    // const data = await documentClient.get(params).promise();
     responseBody = JSON.stringify(data.Item);  // double-check data.Item
     statusCode = 200;
     console.log(data);

@@ -4,14 +4,16 @@
 
 const AWS = require('aws-sdk');
 
-// AWS.config.update({ region: "us-east-1" });
+AWS.config.update({ region: "us-east-1" });
 
-exports.handler = async (event, context) => {
-    // const ddb = new AWS.DynamoDB({ apiVersion: "2012-10-8" });
-    const documentClient = new AWS.DynamoDB.DocumentClient(); //{ region: "us-east-1" }
+exports.handler = async (event, context) => { 
+    const documentClient = new AWS.DynamoDB.DocumentClient({ region: "us-east-1" }); //{ region: "us-east-1" }
 
+    let responseBody = "";
+    let statusCode = 0;
+ 
     const params = {
-        TableName: "prices_bitcoin"
+        TableName: "prices_ethereum"
     }
 
     try {

@@ -9,10 +9,10 @@ exports.handler = async (event, context) => {
     let responseBody = "";
     let statusCode = 0;
 
-    const { id, 
+    const { 
+    id, 
     uid, 
-    username,
-    name, 
+    username, 
     firstname, 
     lastname, 
     email, 

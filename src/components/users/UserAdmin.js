@@ -40,9 +40,10 @@ export default class UserAdmin extends Component {
       await axios.patch(`${config.api.invokeUrl}/armchair-users/${id}`, params);
       const userToUpdate = [...this.state.users].find(user => user.id === id);
       const updatedUsers = [...this.state.users].filter(user => user.id !== id);
-      userToUpdate.username = name;
+      userToUpdate.username =  name;
       updatedUsers.push(userToUpdate);
       this.setState({users: updatedUsers});
+      console.log("updated")
     }catch (err) {
       console.log(`Error updating user: ${err}`);
     }

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { HeaderCSS } from './Header.css';
+import { HeaderCSS } from './Header.css'; 
+
+// import Navbar from './components/Navbar';
+// import LogIn from './components/auth/LogIn';
 
 class Header extends Component {
 
@@ -40,7 +43,7 @@ class Header extends Component {
         <nav className="navbar" role="navigation" aria-label="main navigation">
           <div className="navbar-brand">
             <a className="navbar-item" href="/">
-              {/* <img src="tmmpurple.png"   alt="tmm logo" /> */}
+                <img src="https://tmm-nov.s3.amazonaws.com/img/T30s.png"   alt="tmm logo" />  
             </a>
           </div>
 
@@ -60,7 +63,7 @@ class Header extends Component {
               <div className="navbar-item">
                 <div className="buttons">
                   <a href="/register" className="button is-info">
-                    <strong>Sign up</strong>
+                    <strong>Register</strong>
                   </a>
                   <a href="/login" className="button is-light">
                     Log in

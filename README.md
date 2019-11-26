@@ -1,7 +1,12 @@
+### 
 ### AWS Serverless Backend==> Lambda API-Gateway-DynamoDB
-### React Frontend CoinTracker
 
- 
+### AWS Authentication==> Cognito, Amplify
+####   Making JSON Web Tokens for Cognito Federated User Pool Authorization
+####       https://aws-amplify.github.io/docs/js/authentication
+
+### React Frontend CoinTracker => 
+####   Making serverless API calls using Axios
 
 ### `npm start`
 

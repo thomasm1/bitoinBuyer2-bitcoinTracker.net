@@ -52,7 +52,7 @@ exports.handler = async (event, context, callback) => {
     .promise()
     .then((res) => {
       console.log(res);
-      callback(null, response(200, res.Attributes));
+      callback(null, response(201, res.Attributes));
     })
     .catch((err) => callback(null, response(err.statusCode, err)));
   // try {

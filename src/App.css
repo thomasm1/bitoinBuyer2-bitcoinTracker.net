@@ -42,3 +42,9 @@ a {
 .btn:hover {
     background: #666;
 }
+
+/* HomeContent */
+.card-content {
+    min-height:470px;
+    max-height:470px;
+}

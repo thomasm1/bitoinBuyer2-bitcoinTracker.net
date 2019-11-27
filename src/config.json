@@ -2,5 +2,10 @@
 {
   "api": { 
     "invokeUrl": "https://ccgcdpvo25.execute-api.us-east-1.amazonaws.com/Armchair_Production"
-  }  
+  },
+  "cognito": {
+    "REGION": "us-east-1",
+    "USER_POOL_ID": "us-east-1_MOLDsFElE",
+    "APP_CLIENT_ID": "1c5o7b4j01kpp0ki82b1ums4on"
+  }
 }

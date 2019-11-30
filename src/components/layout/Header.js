@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { HeaderCSS } from './Header.css'; 
+import { HeaderCSS } from './Header.css';
 
 // import Navbar from './components/Navbar';
 // import LogIn from './components/auth/LogIn';
@@ -43,7 +43,7 @@ class Header extends Component {
         <nav className="navbar" role="navigation" aria-label="main navigation">
           <div className="navbar-brand">
             <a className="navbar-item" href="/">
-                <img src="https://tmm-nov.s3.amazonaws.com/img/T30s.png"   alt="tmm logo" />  
+              <img src="https://tmm-nov.s3.amazonaws.com/img/T30s.png" alt="tmm logo" />
             </a>
           </div>
 
@@ -52,7 +52,7 @@ class Header extends Component {
             <div className="navbar-start">
 
 
-              <NavLink className="navbar-item" activeClassName="is-active" exact style={linkStyle} to="/">HOME</NavLink> 
+              <NavLink className="navbar-item" activeClassName="is-active" exact style={linkStyle} to="/">HOME</NavLink>
               <NavLink className="navbar-item" activeClassName="is-active" exact style={linkStyle} to="/console">CONSOLE</NavLink>
               <NavLink className="navbar-item" activeClassName="is-active" style={linkStyle} to="/data-api">DATA</NavLink>
               <NavLink className="navbar-item" activeClassName="is-active" style={linkStyle} to="/data-admin">EDIT</NavLink>
@@ -61,19 +61,29 @@ class Header extends Component {
             </div>
             <div className="navbar-end">
               <div className="navbar-item">
+                {this.props.auth.isAuthenticated && this.props.auth.user && (
+                  <p>Welcome, {this.props.auth.user.username}</p>
+                )};
                 <div className="buttons">
-                  <a href="/register" className="button is-info">
-                    <strong>Register</strong>
-                  </a>
-                  <a href="/login" className="button is-light">
-                    Log in
-                </a>
+                  {!this.props.auth.isAuthenticated && (
+                    <div>
+                      <a href="/register" className="button is-info">
+                        <strong>Register</strong>
+                      </a>
+                      <a href="/login" className="button is-light">
+                        Log in
+                      </a>
+                    </div>
+                  )}
+                  {this.props.auth.isAuthenticated && (
+                    <a href="/" className="button is-light"> Log out </a>
+                  )}
                 </div>
               </div>
             </div>
           </div>
         </nav>
-      
+
       </header>
     )
   }

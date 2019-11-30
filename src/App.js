@@ -37,28 +37,31 @@ setAuthStatus = authenticated => {
 setUser = user => {
   this.setState({ user: user })
 }
+
   render() {
-    return () {
-      const authProps = {
+// cognito
+  const authProps = {
         isAuthenticated: this.state.isAuthenticated,
         user: this.state.user,
-        setAuthStatus: this.state.setAuthStatus,
-        setUser: this.state.setUser
+        setAuthStatus: this.setAuthStatus,
+        setUser: this.setUser
       }
-    }
+// cognito
+
+    return (
       <div className="App">
         <Router>
           <div >
-            <Header />
+            <Header auth={authProps} />
             <Switch>
-              <Route exact path="/" component={Home}
+              <Route exact path="/" render={(props) => <Home {...props} auth={authProps} />} //component={Home}
               />
-              <Route exact path='/console' component={Console}
+              <Route exact path='/console'  render={(props) => <Console {...props} auth={authProps} />}  // component={Console}
               />
               <Route
                 exact
                 path='/data-api'
-                component={Users}
+                 render={(props) => <Users {...props} auth={authProps} />}  // component={Users}
               // component={TrackersAPI}
               // render={() => (
               //   <React.Fragment>
@@ -71,16 +74,25 @@ setUser = user => {
               // )} 
               />
               <Route
-                exact path='/data-admin' component={UserAdmin} />
+                exact path='/data-admin'  render={(props) => <UserAdmin {...props} auth={authProps} />} // component={UserAdmin} 
+                />
               <Route
-                exact path='/about' component={About} />
-              <Route exact path="/login" component={LogIn} />
-              <Route exact path="/register" component={Register} />
-              <Route exact path="/forgotpassword" component={ForgotPassword} />
-              <Route exact path="/forgotpasswordverification" component={ForgotPasswordVerification} />
-              <Route exact path="/changepassword" component={ChangePassword} />
-              <Route exact path="/changepasswordconfirmation" component={ChangePasswordConfirm} />
-              <Route exact path="/welcome" component={Welcome} />
+                exact path='/about'   render={(props) => <About {...props} auth={authProps} />}  // component={About} 
+                />
+              <Route exact path="/login"   render={(props) => <LogIn {...props} auth={authProps} />}  // component={LogIn} 
+              />
+              <Route exact path="/register"   render={(props) => <Register {...props} auth={authProps} />}  //component={Register} 
+              />
+              <Route exact path="/forgotpassword"   render={(props) => <ForgotPassword {...props} auth={authProps} />}  //component={ForgotPassword} 
+              />
+              <Route exact path="/forgotpasswordverification"   render={(props) => <ForgotPasswordVerification {...props} auth={authProps} />}  //component={ForgotPasswordVerification}
+               />
+              <Route exact path="/changepassword"   render={(props) => <ChangePassword {...props} auth={authProps} />}  // component={ChangePassword} 
+              />
+              <Route exact path="/changepasswordconfirmation"   render={(props) => <ChangePasswordConfirm {...props} auth={authProps} />}  //component={ChangePasswordConfirm}
+              />
+              <Route exact path="/welcome"   render={(props) => <Welcome {...props} auth={authProps} />}  // component={Welcome} 
+              />
 
             </Switch>
             <Footer />

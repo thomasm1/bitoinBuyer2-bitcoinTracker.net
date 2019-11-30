@@ -42,7 +42,9 @@ a {
 .btn:hover {
     background: #666;
 }
-
+.buttons {
+    margin-left:10px;
+}
 /* HomeContent */
 .card-content {
     min-height:470px;

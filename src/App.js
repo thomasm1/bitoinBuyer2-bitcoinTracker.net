@@ -25,8 +25,27 @@ library.add(faEdit);
 
 class App extends Component {
 
+state = {
+  isAuthenticated: false,
+  user: null
+}
+
+setAuthStatus = authenticated => {
+  this.setState({ isAuthenticated: authenticated });
+}
+
+setUser = user => {
+  this.setState({ user: user })
+}
   render() {
-    return (
+    return () {
+      const authProps = {
+        isAuthenticated: this.state.isAuthenticated,
+        user: this.state.user,
+        setAuthStatus: this.state.setAuthStatus,
+        setUser: this.state.setUser
+      }
+    }
       <div className="App">
         <Router>
           <div >

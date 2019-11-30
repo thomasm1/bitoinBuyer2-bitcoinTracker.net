@@ -32,9 +32,31 @@ class LogIn extends Component {
         errors: { ...this.state.errors, ...error }
       });
     }
-     // NEXT ... 
+    // AWS Cognito integration ==> SUBMIT
 
-    // AWS Cognito integration going here ...
+    const { username, email, password } = this.state;
+    try {
+      const signUpResponse = await Auth.signUp({
+        username,
+        password,
+        attributes: {
+          email: email
+        }
+      });
+      console.log(signUpResponse);
+      this.props.history.push("/welcome");
+    } catch(error) {
+      let err = null;
+      !error.message ? err = { "message": error } : err = error;
+      this.setState({
+        errors: {
+          ...this.state.errors,
+          cognito: err
+        }
+      });
+    } 
+    
+    // AWS Cognito integration ==> SUBMIT END
   };
 
   onInputChange = event => {

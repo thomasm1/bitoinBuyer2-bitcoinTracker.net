@@ -74,9 +74,9 @@ class Register extends Component {
 
   render() {
     return (
-      <section className="section auth">
+      <section className="section auth regLoginPad">
         <div className="container">
-          <h1>Register</h1>
+          <p className="regLogin"> Register </p>
           <br />
           <FormErrors formerrors={this.state.errors} />
 
@@ -141,8 +141,9 @@ class Register extends Component {
               </p>
             </div>
             <div className="field">
+              <br/>
               <p className="control">
-                <a href="/forgotpassword">Forgot password?</a>
+               Registration is completed through email verification. <br /><br />No worries, Email not shared with 3rd party, nor used for other purposes.
               </p>
             </div>
             <div className="field">

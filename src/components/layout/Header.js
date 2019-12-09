@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { HeaderCSS } from './Header.css';
+import { Auth } from 'aws-amplify';
 
 // import Navbar from './components/Navbar';
 // import LogIn from './components/auth/LogIn';
 
 class Header extends Component {
-
+ handleLogout = async event=> {
+   event.preventDefault();
+   try {
+     Auth.signOut();
+     this.props.auth.setAuthStatus(false);
+     this.props.auth.setUser(null);
+   } catch(error) {
+     console.log(error.message);
+   }
+ } 
   // state = {
   //   active: 'search-not-active',
   //   searchWords: ''
@@ -63,20 +73,20 @@ class Header extends Component {
               <div className="navbar-item">
                 {this.props.auth.isAuthenticated && this.props.auth.user && (
                   <p>Welcome, {this.props.auth.user.username}</p>
-                )};
+                )}
                 <div className="buttons">
                   {!this.props.auth.isAuthenticated && (
                     <div>
                       <a href="/register" className="button is-info">
-                        <strong>Register</strong>
+                        REGISTER 
                       </a>
-                      <a href="/login" className="button is-light">
-                        Log in
+                      <a href="/login" className="button is-secondary">
+                        SIGN IN
                       </a>
                     </div>
                   )}
                   {this.props.auth.isAuthenticated && (
-                    <a href="/" className="button is-light"> Log out </a>
+                    <a href="/" onClick={this.handleLogout} className="button is-secondary"> LOG OUT </a>
                   )}
                 </div>
               </div>

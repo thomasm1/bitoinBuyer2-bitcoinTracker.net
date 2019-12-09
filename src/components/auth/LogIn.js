@@ -66,17 +66,17 @@ class LogIn extends Component {
 
   render() {
     return (
-      <section className="section auth">
-        <div className="container">
-          <h1>Log in</h1>
+      <section className="section auth  regLoginPad">
+        <div className="container" >
+          <p className=" regLogin"> Log in </p>
           <br />
           <FormErrors formerrors={this.state.errors} />
 
           <form onSubmit={this.handleSubmit}>
-            <div className="field">
+            <div className="field" >
               <p className="control">
                 <input 
-                  className="input" 
+                  className="input"  
                   type="text"
                   id="username"
                   aria-describedby="usernameHelp"
@@ -101,18 +101,21 @@ class LogIn extends Component {
                 </span>
               </p>
             </div>
-            <div className="field">
-              <p className="control">
-                <a href="/forgotpassword">Forgot password?</a>
-              </p>
-            </div>
-            <div className="field">
+             <div className="field">
+               <br />
               <p className="control">
                 <button className="button is-success">
                   Login
                 </button>
               </p>
             </div>
+            <div className="field">
+              <br/>
+              <p className="control">
+                <a href="/forgotpassword">Forgot password?</a>
+              </p>
+            </div>
+           
           </form>
         </div>
       </section>

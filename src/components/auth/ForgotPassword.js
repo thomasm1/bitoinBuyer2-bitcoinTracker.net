@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FormErrors from "../util/FormErrors";
-import Validate from "../util/FormValidation";
+import Validate from "../util/FormValidation"; 
+import { Auth } from 'aws-amplify';
 
 class ForgotPassword extends Component {
   state = {
@@ -31,9 +32,14 @@ class ForgotPassword extends Component {
         errors: { ...this.state.errors, ...error }
       });
     }
-     // NEXT ... 
-     
-    // AWS Cognito integration going here ...
+        // AWS Cognito  
+    try {
+      await Auth.forgotPassword(this.state.email);
+      this.props.history.push('/forgotpasswordverification');
+    } catch(error) {
+      console.log(error);
+    }
+    // AWS Cognito  
   }
 
   onInputChange = event => {
@@ -45,9 +51,10 @@ class ForgotPassword extends Component {
 
   render() {
     return (
-      <section className="section auth">
+      <section className="section auth regLoginPad">
         <div className="container">
-          <h1>Forgot your password?</h1>
+          <p style={{fontSize:"1.6rem"}}><strong>Forgot your password?</strong></p>
+          <hr/>
           <p>
             Please enter the email address associated with your account and we'll
             email you a password reset link.
@@ -72,14 +79,15 @@ class ForgotPassword extends Component {
               </p>
             </div>
             <div className="field">
-              <p className="control">
+                   <hr/>
+              {/* <p className="control">
                 <a href="/forgotpassword">Forgot password?</a>
-              </p>
+              </p> */}
             </div>
             <div className="field">
               <p className="control">
                 <button className="button is-success">
-                  Login
+                  Submit
                 </button>
               </p>
             </div>

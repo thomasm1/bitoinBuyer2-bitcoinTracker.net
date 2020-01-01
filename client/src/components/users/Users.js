@@ -36,7 +36,7 @@ export default class Users extends Component {
             <div className="columns">
               <div className="column">
                 <div className="tile is-ancestor">
-                  <div className="tile is-4 is-parent  is-vertical">
+                  <div className="tile is-4 is-parent is-vertical user-container">
                     { 
                       this.state.users && this.state.users.length > 0
                       ? this.state.users.map(user => <User name={user.username} id={user.id} key={user.id} />)

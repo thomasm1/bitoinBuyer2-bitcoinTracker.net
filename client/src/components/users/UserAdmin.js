@@ -88,11 +88,12 @@ export default class UserAdmin extends Component {
             <hr />
             <p className="subtitle is-5">Add and remove users using AWS DynamoDB persistant storage:</p>
             <br />
-            <div className="columns">
-              <div className="column is-one-third">
-                <form onSubmit={event => this.handleAddUser(this.state.newuser.id, event)}>
-                  <div className="field has-addons">
-                    <div className="control">
+            <div className="rows">
+              <div className="row is-one-third ">
+             <div className="  form-container ">
+             <form onSubmit={event => this.handleAddUser(this.state.newuser.id, event)}>
+                  <div className="field pull-left has-addons">
+                    <div className="control ">
                       <input 
                         className="input is-medium"
                         type="text" 
@@ -101,6 +102,7 @@ export default class UserAdmin extends Component {
                         onChange={this.onAddUserNameChange}
                       />
                     </div>
+                    <br />
                     <div className="control">
                       <input 
                         className="input is-medium"
@@ -110,6 +112,7 @@ export default class UserAdmin extends Component {
                         onChange={this.onAddUserIdChange}
                       />
                     </div>
+                    <br />
                     <div className="control">
                       <button type="submit" className="button is-info is-medium">
                         Add user
@@ -117,11 +120,12 @@ export default class UserAdmin extends Component {
                     </div>
                   </div>
                 </form>
+             </div>
               </div> 
               
-              <div className=" column is-two-thirds panels">
-                {/* <d/iv className="tile is-ancestor "> */}
-                  <div className="tile is-4 is-parent   is-vertical">
+              <div className=" row is-two-thirds panels ">
+                <div className="tile is-ancestor ">
+                  <div className="tile is-4 is-parent  user-container  is-vertical">
                     { 
                       this.state.users.map((user, index) => 
                         <User 
@@ -134,7 +138,7 @@ export default class UserAdmin extends Component {
                         />)
                     }
                   </div>
-                {/* </div> */}
+                </div>
               </div>
             </div>
 

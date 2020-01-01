@@ -1,9 +1,9 @@
 {
-    "name": "bitcoinbuyer2-reacttracker",
+    "name": "bitcoinbuyer2-metallurgy-reacttracker",
     "version": "0.2.0",
     "private": true,
     "main": "app.js",
-    "description": "Express- REACT- NodeJS REST API",
+    "description": "Sererside- Express- REACT- NodeJS REST API",
     "author": "thomas m maestas",
     "dependencies": {
         "body-parser": "^1.18.3",

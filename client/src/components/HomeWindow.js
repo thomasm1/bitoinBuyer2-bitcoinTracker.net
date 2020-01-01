@@ -6,7 +6,9 @@ export default function HomeWindow() {
       <div className="hero-body">
         <div className="container">
           <img style={{float:"left",marginRight:"20px"}} src="tmmpurple.png" width="150"  alt="Coin Trackers" />  
-        <h1> CoinTracker Console</h1>
+        <h4> Metallurgy CoinTracker Console</h4>
+         <hr/>
+         <h3><strong> Armchair-Bitcoinist App</strong></h3>
         </div>
       </div>
     </section>

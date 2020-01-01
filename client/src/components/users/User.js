@@ -23,7 +23,7 @@ export default class User extends Component {
 
   render() {
     return (
-      <div className="tile is-child box notification is-success">
+      <div className="tile is-child  box  user-card notification is-success">  
         {
           this.props.isAdmin && 
           <Fragment>

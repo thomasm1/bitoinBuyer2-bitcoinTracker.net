@@ -11,11 +11,11 @@ const port = process.env.PORT || 3001;
 // include routes
 app.use('/metal', metalRoutes);
 
-app.use(express.static('public'));
+app.use(express.static('public')); // 2nd-to-latest-build
 
 // Index route
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/build/index.html'));
+    res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 // initialize store

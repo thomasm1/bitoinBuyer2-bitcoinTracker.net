@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react';
-import Window from './HomeWindow';
+import HomeWindow from './HomeWindow';
 import HomeContent from './HomeContent';
+import MetalsAdmin from './MetalsAdmin';
 
 export default function Home() {
   return (
     <Fragment>
-      <Window />
+      <HomeWindow />
       <div className="box cta">
        
         <p className="has-text-centered">
@@ -13,6 +14,7 @@ export default function Home() {
         </p>
       </div>
       <HomeContent />
+      <MetalsAdmin />
     </Fragment>
   )
 }

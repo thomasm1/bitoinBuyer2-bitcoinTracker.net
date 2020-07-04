@@ -53,7 +53,7 @@ class Header extends Component {
         <nav className="navbar" role="navigation" aria-label="main navigation">
           <div className="navbar-brand">
             <a className="navbar-item" href="/">
-              <img src="https://tmm-nov.s3.amazonaws.com/img/T30s.png" alt="tmm logo" />
+              <img src="https://s3.amazonaws.com/thomasmaestas.net/dist/img/TMM.jpg" alt="tmm logo" />
             </a>
           </div>
 

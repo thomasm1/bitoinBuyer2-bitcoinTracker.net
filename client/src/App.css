@@ -20,12 +20,18 @@ h1 {
     text-transform:uppercase;
     text-align:center;
 }
- 
+
 a {
     color: #333;
     text-decoration: none;
 }
-
+.windowText {
+  max-width: 40%;
+  float:left;
+}
+.tmmImage {
+  width:3rem;
+}
 .regLoginPad {
 padding-left:25%;
 padding-right:25%;
@@ -72,3 +78,4 @@ padding-right:25%;
     float: left;
     margin-right: 1em;
   }
+ 

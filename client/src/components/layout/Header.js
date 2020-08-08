@@ -16,7 +16,7 @@ class Header extends Component {
    } catch(error) {
      console.log(error.message);
    }
- } 
+ }
   // state = {
   //   active: 'search-not-active',
   //   searchWords: ''
@@ -34,7 +34,7 @@ class Header extends Component {
   //     searchWords: '',
   //     active:this.value
   //   });
-  //   this.value = this.state.searchWords === '' ? 'search-not-active' : 'search-active'; 
+  //   this.value = this.state.searchWords === '' ? 'search-not-active' : 'search-active';
   // }
 
   render() {
@@ -53,7 +53,7 @@ class Header extends Component {
         <nav className="navbar" role="navigation" aria-label="main navigation">
           <div className="navbar-brand">
             <a className="navbar-item" href="/">
-              <img src="https://s3.amazonaws.com/thomasmaestas.net/dist/img/TMM.jpg" alt="tmm logo" />
+              <img className="tmmImage" src="https://s3.amazonaws.com/thomasmaestas.net/dist/img/TMM.jpg" alt="tmm logo" />
             </a>
           </div>
 
@@ -78,7 +78,7 @@ class Header extends Component {
                   {!this.props.auth.isAuthenticated && (
                     <div>
                       <a href="/register" className="button is-info">
-                        REGISTER 
+                        REGISTER
                       </a>
                       <a href="/login" className="button is-secondary">
                         SIGN IN
@@ -110,7 +110,7 @@ let headerStyle = {
 //   color: 'white',
 //   textAlign: 'center',
 //   padding: '10px'
-// } 
+// }
 
 let linkStyle = {
   textDecoration: 'none',

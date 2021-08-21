@@ -11,9 +11,10 @@ class SearchBar extends Component {
     return (
       <div className="search-bar">
         <hr />
-        <h3>VideoSearch</h3>
+        <h2><strong>Video Search</strong></h2>
         <input
           value={this.state.term}
+          placeholder={"Ethereum trends"}
           onChange={event => this.onInputChange(event.target.value)} />
           <hr />
       </div>

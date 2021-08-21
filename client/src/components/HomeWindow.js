@@ -6,7 +6,7 @@ export default function HomeWindow() {
       <div className="hero-body">
         <div className="container">
 
-          <img className="logo" src="https://s3.amazonaws.com/tmm-nov/img/T30s.png"  />
+          <img className="logo" src="https://s3.amazonaws.com/tmm-nov/img/T30s.png" alt="tmm logo" />
         <div className="windowText">
         <h4> Altcoins CoinTracker Console</h4>
          <hr/>

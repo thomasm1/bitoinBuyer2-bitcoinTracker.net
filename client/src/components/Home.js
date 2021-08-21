@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import HomeWindow from './HomeWindow';
 import HomeContent from './HomeContent';
 import MetalsAdmin from './MetalsAdmin';
+import Video from './Video';
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       </div>
       <HomeContent />
       <MetalsAdmin />
+      <Video />
     </Fragment>
   )
 }

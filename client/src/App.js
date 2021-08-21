@@ -16,6 +16,7 @@ import ForgotPasswordVerification from './components/auth/ForgotPasswordVerifica
 import ChangePassword from './components/auth/ChangePassword';
 import ChangePasswordConfirm from './components/auth/ChangePasswordConfirm';
 import Welcome from './components/auth/Welcome';
+import Video from './components/Video';
 // import TrackersAPI from './components/TrackersAPI';
 
 import './App.css';

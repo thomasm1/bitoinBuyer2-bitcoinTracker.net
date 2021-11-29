@@ -5,6 +5,11 @@
 ####   Making JSON Web Tokens for Cognito Federated User Pool Authorization
 ####       https://aws-amplify.github.io/docs/js/authentication
 
+### ENDPOINTS: 
+#### Data Tab
+https://ccgcdpvo25.execute-api.us-east-1.amazonaws.com/Armchair_Production/armchair-users
+Request Method: GET, PUT, POST, DELETE
+
 ### React Frontend CoinTracker => 
 ####   Making serverless API calls using Axios
 

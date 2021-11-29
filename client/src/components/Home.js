@@ -3,6 +3,7 @@ import HomeWindow from './HomeWindow';
 import HomeContent from './HomeContent';
 import MetalsAdmin from './MetalsAdmin';
 import Video from './Video';
+import CurrencyConverter from './pages/CurrencyConverter';
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       </div>
       <HomeContent />
       <MetalsAdmin />
+      <CurrencyConverter />
       <Video />
     </Fragment>
   )

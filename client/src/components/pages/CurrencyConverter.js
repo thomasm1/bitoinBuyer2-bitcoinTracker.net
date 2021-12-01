@@ -1,36 +1,45 @@
 import React from 'react'
-// import Axios from 'axios'
+import { useState } from 'react'
+import axios from 'axios'
 import ExchangeRate from './ExchangeRate'
 
 const CurrencyConverter = () => {
 
     const currencies = ['BTC', 'ETH', 'HEX', 'USD', 'XRP', 'LTC', 'ADA']
+    const [chosenPrimaryCurrency, setChosenPrimaryCurrency]  = useState('HEX')
+    const [chosenSecondaryCurrency, setChosenSecondaryCurrency] = useState('ETH')
+    const [amount, setAmount] = useState(1)
+
+    console.log(amount)
 
     const convert  = () => {
-        // const options = {
-        //     method: 'GET',
-        //     url:'https://alpha-vantage.p.rapidapi.comp/query',
-        //     params:{from_currency: chosenPrimaryCurrency, function: 'CURRENCY_EXCHANGE_RATE', to_currency: chosenSecondaryCurrency},
-        //     headers: {
-        //         'x-rapidapi-host':'alpha-vantage.p.rapidapi.com',
-        //         'x-rapidapi-key':'---------------------------------'
-        //     }
-        // }
+        const options = {
+            method: 'GET',
+            url:'https://alpha-vantage.p.rapidapi.comp/query',
+            params:{from_currency: 'BTC', function: 'CURRENCY_EXCHANGE_RATE', to_currency: 'USD'},
+            headers: {
+                'x-rapidapi-host':'alpha-vantage.p.rapidapi.com',
+                'x-rapidapi-key':'---------------------------------'
+            }
+        }
 
-        // axios.request(options).then((response) => {
-        //     console.log(response.data['Realtime Currency Exchange Rate']['Exchange Rate'])
-        //     setExchangeRate(response.data['Realtime Currency Exchange Rate']['Exchange Rate'])
-        //     SpeechRecognitionResult(response.data['Realtime Currency Exchange Rate']['Exchange Rate'] * amount)
-        // }).catch((err) => {
-        //     console.error(err)
-        // })
+        axios.request(options).then((response) => {
+            console.log(response.data)
+            // console.log(response.data['Realtime Currency Exchange Rate']['Exchange Rate'])
+            // setExchangeRate(response.data['Realtime Currency Exchange Rate']['Exchange Rate'])
+            // SpeechRecognitionResult(response.data['Realtime Currency Exchange Rate']['Exchange Rate'] * amount)
+
+        }).catch((err) => {
+            console.error(err)
+        })
     }
 
     return (
         <div className="currency-converter">
             <h2>Currency Converter</h2>
 
-            <table>
+        <div className="input-box">
+        <table>
                 <tbody>
 <tr>
     <td>Primary Currency:</td>
@@ -73,6 +82,8 @@ const CurrencyConverter = () => {
     </tr>
                 </tbody>
             </table>
+        </div>
+
             <ExchangeRate />
         </div>
     )

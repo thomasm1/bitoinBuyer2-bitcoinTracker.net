@@ -20,9 +20,12 @@ code {
 background-color: aquamarine;
 }
 .currency-converter {
-background-color:brown
+background-color:brown;
 } 
 .exchange-rate {
-  background-color:green
+  background-color:green;
 
+}
+.news-feed {
+  background-color:yellowgreen;
 }

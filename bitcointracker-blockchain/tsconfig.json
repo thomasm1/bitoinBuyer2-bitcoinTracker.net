@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "NodeNext",
+    "target": "ESNext",
+    "moduleResolution": "NodeNext",
+    "outDir": "./src",
+    "rootDir": "./src",                // Allow all files in the root directory
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true
+  },
+  "include": [ "./**/*.ts" ] ,
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

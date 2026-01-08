@@ -1,0 +1,33 @@
+# docker-compose up --build
+
+version: '3.8'
+services:
+  node_1:
+    build: .
+    command: nodemon --watch src -e js ${NODE_SCRIPT} ${BASE_PORT_1} ${HOST}:${BASE_PORT_1}
+    ports:
+      - "${BASE_PORT_1}:${BASE_PORT_1}"
+
+  node_2:
+    build: .
+    command: nodemon --watch src -e js ${NODE_SCRIPT} ${BASE_PORT_2} ${HOST}:${BASE_PORT_2}
+    ports:
+      - "${BASE_PORT_2}:${BASE_PORT_2}"
+
+  node_3:
+    build: .
+    command: nodemon --watch src -e js ${NODE_SCRIPT} ${BASE_PORT_3} ${HOST}:${BASE_PORT_3}
+    ports:
+      - "${BASE_PORT_3}:${BASE_PORT_3}"
+
+  # node_4:
+  #   build: .
+  #   command: npm run node_4
+  #   ports:
+  #   - "9004:9004"
+
+  # node_5:
+  #   build: .
+  #   command: npm run node_5
+  #   ports:
+  #   - "9005:9005"

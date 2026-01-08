@@ -1,0 +1,40 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-srv
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  rules:
+    - host: cryptomaven.xyz
+      http:
+        paths:
+          - path: /nftCoins
+            pathType: Prefix
+            backend:
+              service:
+                name: nftCoins-clusterip-srv
+                port:
+                  number: 4000
+          - path: /events
+            pathType: Prefix
+            backend:
+              service:
+                name: query-srv
+                port:
+                  number: 4004
+          - path: /nftCoins/?(.*)/metadata
+            pathType: Prefix
+            backend:
+              service:
+                name: metadata-clusterip-srv
+                port:
+                  number: 4001
+          - path: /?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: client-srv
+                port:
+                  number: 3000

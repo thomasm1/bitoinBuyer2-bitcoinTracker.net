@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cryptomaven-event-bus-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cryptomaven-event-bus
+  template:
+    metadata:
+      labels:
+        app: cryptomaven-event-bus
+    spec:
+    containers:
+      - name: cryptomaven-event-bus
+        image: thomasm1/cryptomaven-event-bus
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cryptomaven-event-bus-srv
+spec:
+  selector:
+    app: cryptomaven-event-bus
+  ports:
+    - name: event-bus
+      protocol: TCP
+      port: 4005
+      targetPort: 4005
